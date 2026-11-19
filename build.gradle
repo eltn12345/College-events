@@ -1,0 +1,15 @@
+plugins {
+    id 'base'
+}
+
+task copyResources(type: Copy) {
+    from 'src/main/resources'
+    into 'build/dist'
+}
+
+task packageWebsite(type: Zip) {
+    from 'build/dist'
+    archiveFileName = 'college-events.zip'
+}
+
+defaultTasks 'copyResources', 'packageWebsite'
